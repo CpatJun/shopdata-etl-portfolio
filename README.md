@@ -3,7 +3,7 @@
 
 ![Tests](https://github.com/CpatJun/shopdata-etl-portfolio/actions/workflows/tests.yml/badge.svg)
 
-A portfolio-focused ETL project demonstrating reliable extraction, transformation, incremental loading, data-quality quarantine, audit logging, and analytical SQL. It uses the provided SQLite source as a reproducible sample, while the design emphasizes production-oriented behaviors.
+A portfolio-focused ETL project demonstrating reliable extraction, transformation, idempotent warehouse loading with key-based upserts, data-quality quarantine, audit logging, and analytical SQL. It uses the provided SQLite source as a reproducible sample, while the design emphasizes production-oriented behaviors.
   
 
 ## Architecture
@@ -24,7 +24,7 @@ Read-only shopdata.db
       └── rejected rows + reason codes
           │
           ▼
-   Transactional incremental UPSERT
+   Transactional idempotent UPSERT
       ├── dim_customers
       ├── fct_orders
       ├── etl_quarantine
