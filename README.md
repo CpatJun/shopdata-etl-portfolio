@@ -5,10 +5,11 @@ A portfolio-focused ETL project demonstrating reliable extraction, transformatio
 ## Architecture
 
 ```text
+
 Read-only shopdata.db
-   ├── vw_raw_customers
-   ├── vw_raw_orders
-   └── vw_exchange_rates
+   ├── raw_customers
+   ├── raw_orders
+   └── exchange_rates
           │
           ▼
    Extract (SQLite read-only)
@@ -17,12 +18,14 @@ Read-only shopdata.db
       ├── clean customer dimension
       ├── clean USD order facts
       └── rejected rows + reason codes
+          │
           ▼
    Transactional incremental UPSERT
       ├── dim_customers
       ├── fct_orders
       ├── etl_quarantine
       └── etl_run_log
+          │
           ▼
    clv_report.sql / BI consumption
 ```
