@@ -150,7 +150,7 @@ SELECT * FROM etl_run_log ORDER BY started_at DESC;
 2. For large datasets, use a server database/warehouse and bulk loading rather than SQLite.
 3. Add source freshness checks, alerting, and coverage thresholds before production deployment.
 4. Add Docker deployment and a scheduled Prefect deployment after the local flow is stable.
-5. Git commit history must be created by the developer in their own repository; it cannot be represented honestly by a ZIP file.
+
 
 ## Data exploration
 
