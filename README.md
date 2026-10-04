@@ -46,19 +46,46 @@ Read-only shopdata.db
 - **Duplicate source keys:** duplicate order IDs are all quarantined because choosing one arbitrarily could alter revenue. Duplicate exchange-rate keys fail fast.
 - **Orchestration:** Prefect 3 tasks and flow provide a clear place to add scheduling, retries, and observability.
 
+
+
 ## Project layout
 
 ```text
-src/shopdata_etl/
-  config.py       # environment-based source/target paths
-  extract.py      # read-only extraction
-  transform.py    # pure, testable transformations
-  load.py         # SQLite schema, upsert, audit and quarantine
-  pipeline.py     # Prefect orchestration
-pipeline.py       # convenient command-line entry point
-tests/            # unit and integration tests
-sql/              # (SQL files currently kept at project root)
+shopdata-etl-portfolio/
+├── .github/
+│   └── workflows/
+│       └── tests.yml
+├── src/
+│   └── shopdata_etl/
+│       ├── __init__.py
+│       ├── config.py
+│       ├── extract.py
+│       ├── transform.py
+│       ├── load.py
+│       └── pipeline.py
+├── tests/
+│   └── test_pipeline.py
+├── pipeline.py
+├── validate_warehouse.py
+├── inspect_warehouse.py
+├── check_db.py
+├── shopdata.db
+├── clv_report.sql
+├── clv_report.csv
+├── exploration.sql
+├── requirements.txt
+├── pyproject.toml
+├── .gitignore
+└── README.md
 ```
+
+- `src/shopdata_etl/` — ETL implementation
+- `tests/` — automated tests
+- `pipeline.py` — ETL command-line entry point
+- `validate_warehouse.py` — warehouse data-quality checks
+- `clv_report.sql` — customer lifetime value report
+- `exploration.sql` — source data exploration
+- `.github/workflows/tests.yml` — automated GitHub Actions tests
 
 ## Requirements
 
