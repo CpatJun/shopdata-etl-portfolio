@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shopdata-analytics-pipeline"
+version = "0.2.0"
+description = "A reliable, auditable SQLite-to-analytics ETL portfolio project"
+requires-python = ">=3.12"
+dependencies = ["pandas>=2.2,<3.0", "prefect>=3.0,<4.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0,<9.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"

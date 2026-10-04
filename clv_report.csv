@@ -1,0 +1,11 @@
+﻿customer_id,full_name,completed_orders,historical_lifetime_value_usd,customer_cohort
+1,Alice Smith,2,486,2023-06
+6,Fiona Gallagher,1,450,2023-05
+4,Diana Prince,2,389.5,2023-04
+2,Bob Jones,1,220,2023-09
+3,Charlie Brown,0,0,2023-03
+5,Evan Wright,0,0,2023-04
+7,George Costanza,0,0,2023-06
+8,Hannah Abbott,0,0,2023-07
+9,Ian Malcolm,0,0,2023-08
+10,Jane Doe,0,0,2023-09
